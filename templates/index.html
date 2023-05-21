@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <title>Stable Diffusion Styles</title>
+  <head>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">	
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous"></script>
+	<link rel="icon" href="/static/favicon.ico?v=2" type="image/x-icon">
+	<meta name="viewport" content="width=400, initial-scale=1" />
+	<meta charset="UTF-8">
+
+    <style>
+      body {
+        font-family: Quicksand;
+		background-color: #343541;
+		color: #ECECF1;
+      }
+      h1 {
+        background-color: #c35250;
+        color: #ECECF1;
+        display: inline-block;
+        font-size: 2em;
+        margin: 0;
+        padding: 10px;
+        border: 2px solid #000000;
+		border-radius: 10px;
+		font-family: monospace;
+      }
+	  a {
+		color: #c35250;
+        text-decoration: none;
+	  }
+	  text {
+		font-size: 15px;
+		text-align: center;
+	  }
+        
+    button {
+        color: #ECECF1;
+        background-color: #28282863;
+        font-family: Quicksand;
+        font-size: 17px;
+        padding: 10px 10px;
+        margin-top: 5px;
+        border-radius: 10px;
+    }
+
+      #userInput {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: stretch;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        margin-top: 20px; 
+      }
+      #textInput {
+        width: 100%;
+		background-color: #5c5c5c63;
+        border: 2px solid #000000;
+		border-radius: 10px;
+        font-family: Quicksand;
+        font-size: 17px;
+		block-size: 25px;
+		padding: 5px;
+		color: #ECECF1;
+      }
+      #textInput:focus {
+        outline:none;
+        border: 2px solid #000000;
+      }
+      .userText {
+        padding-left: 10%;
+        animation: pulse .5s ease-in-out;
+      }
+      .userText p {
+        color: #ECECF1;
+        font-family: Quicksand;
+        font-size: 17px;
+        text-align: left;
+        line-height: 25px;
+        background-color: #5c5c5c63;
+        box-shadow: 10px 10px 0px 0px #000000;
+        border: 2px solid #000000;
+		border-radius: 10px;
+        padding: 20px;
+		white-space: pre-wrap;
+      }
+
+        .image-group {
+          display: flex;
+          justify-content: center;
+        }
+
+        .image-group img {
+          display: block;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          margin-left: 2px;
+          margin-right: 2px;
+          max-width: 50%;
+          border-radius: 5px;
+        }
+        
+      .botText {
+        padding-right: 10%;
+        animation: pulse .5s ease-in-out;
+      }
+      .botText p {
+        color: #ECECF1;
+        font-family: Quicksand;
+        font-size: 17px;
+        text-align: left;
+        line-height: 25px;
+        margin-bottom: 40px;
+        background-color: #28282863 ;
+        box-shadow: 10px 10px 0px 0px #000000;
+        border: 2px solid #000000;
+		border-radius: 10px;
+        padding: 20px;
+		white-space: pre-wrap;
+      }
+	  
+    .botText img {
+      color: #ECECF1;
+      line-height: 25px;
+      margin-top: 25px;
+      margin-bottom: 25px;
+      background-color: #28282863;
+      box-shadow: 10px 10px 0px 0px #000000;
+      border: 2px solid #000000;
+      max-width: -webkit-fill-available;
+      max-height: 90vh; 
+      border-radius: 10px;
+    }
+	  
+	  .newConversation {
+	    color: #ececf154;
+	  }
+
+      #tidbit {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 300px;
+      }
+      .boxed {
+        margin-left: auto;
+		margin-right: auto;
+        width: 55%;
+        margin-top: 20px;
+		height: 450px;
+      }
+
+    .settings button {
+      padding: 10px;
+      font-size: 16px;
+      width: 225px;
+    }  
+      #textInput_Buttons {
+          margin-top: 0px;
+          margin-left: 4px;
+          margin-left: 4px;
+      }
+        
+	  @media only screen and (max-width:900px) {
+	    .boxed {
+		  width: 80%;
+		}
+	  }
+	  
+	  
+	  @media only screen and (max-width:500px) {
+	    .boxed {
+		  width: 90%;
+		}
+	  }
+	  
+      @keyframes pulse {
+        from {
+          transform: scale3d(1, 1, 1);
+        }
+
+        50% {
+          transform: scale3d(1.05, 1.05, 1.05);
+        }
+
+        to {
+          transform: scale3d(1, 1, 1);
+        }
+      }
+        
+        .active {
+          background-color: #c35250;
+          color: white;
+        }
+    </style>
+  </head>
+  <body>
+    <center>
+      <h1>
+        Stable Diffusion Styles
+      </h1>
+    </center>
+
+    <div class="box"></div>
+    <div class="boxed">
+      <div>
+        <div id="chatbox"></div>
+        <div id="userInput">
+          <textarea id="textInput" type="text" autofocus="autofocus" name="msg" maxlength="500" placeholder="Enter prompt here..."></textarea>
+          <button id="textInput_Buttons" onclick="restoreLastText()">
+              <i class="fa-solid fa-recycle"></i>
+          </button>
+          <button id="textInput_Buttons" onclick="reloadPage()">
+              <i class="fa-solid fa-trash"></i>
+          </button>
+          <button id="textInput_Buttons" onclick="talkToBot()">
+              <i class="fa-solid fa-paper-plane"></i>
+          </button>
+        </div><br>
+        Quality <i class="fa-solid fa-gear"></i>
+        <div class="settings">
+            <button id="squarebutton" onclick="setFormat(1)">Fast</button>
+            <button id="landscapebutton" onclick="setFormat(2)">Landscape</button>
+            <button id="portraitbutton" onclick="setFormat(3)">Portrait</button>
+            <button id="ultrabutton" onclick="setFormat(4)">Ultra</button>
+        </div><br>
+        Style <i class="fa-solid fa-palette"></i>
+        <div class="settings">
+            <button id="cinematic" class="active" onclick="setStyle(cinematic)">Cinematic
+              <div class="image-group">
+                <img src="{{ url_for('static', filename='bird_cinematic.png') }}">
+                <img src="{{ url_for('static', filename='bus_cinematic.png') }}">
+              </div>
+            </button>
+            <button id="lowpoly" onclick="setStyle(lowpoly)">Low Poly
+              <div class="image-group">
+                <img src="{{ url_for('static', filename='bird_lowpoly.png') }}">
+                <img src="{{ url_for('static', filename='bus_lowpoly.png') }}">
+              </div>
+            </button>
+            <button id="anime" onclick="setStyle(anime)">Anime
+              <div class="image-group">
+                <img src="{{ url_for('static', filename='bird_anime.png') }}">
+                <img src="{{ url_for('static', filename='bus_anime.png') }}">
+              </div>
+            </button>
+            <button id="oilpainting" onclick="setStyle(oilpainting)">Oilpainting
+              <div class="image-group">
+                <img src="{{ url_for('static', filename='bird_oilpainting.png') }}">
+                <img src="{{ url_for('static', filename='bus_oilpainting.png') }}">
+              </div>
+            </button>
+            <button id="cute" onclick="setStyle(cute)">Cute
+              <div class="image-group">
+                <img src="{{ url_for('static', filename='bird_cute.png') }}">
+                <img src="{{ url_for('static', filename='bus_cute.png') }}">
+              </div>
+            </button>
+            <button id="comic" onclick="setStyle(comic)">Comic
+              <div class="image-group">
+                <img src="{{ url_for('static', filename='bird_comic.png') }}">
+                <img src="{{ url_for('static', filename='bus_comic.png') }}">
+              </div>
+            </button>
+            <button id="steampunk" onclick="setStyle(steampunk)">Steampunk
+              <div class="image-group">
+                <img src="{{ url_for('static', filename='bird_steampunk.png') }}">
+                <img src="{{ url_for('static', filename='bus_steampunk.png') }}">
+              </div>
+            </button>
+            <button id="vintage" onclick="setStyle(vintage)">Vintage
+              <div class="image-group">
+                <img src="{{ url_for('static', filename='bird_vintage.png') }}">
+                <img src="{{ url_for('static', filename='bus_vintage.png') }}">
+              </div>
+            </button>
+            <button id="natural" onclick="setStyle(natural)">Natural
+              <div class="image-group">
+                <img src="{{ url_for('static', filename='bird_natural.png') }}">
+                <img src="{{ url_for('static', filename='bus_natural.png') }}">
+              </div>
+            </button>
+            <button id="cyberpunk" onclick="setStyle(cyberpunk)">Cyberpunk
+              <div class="image-group">
+                <img src="{{ url_for('static', filename='bird_cyberpunk.png') }}">
+                <img src="{{ url_for('static', filename='bus_cyberpunk.png') }}">
+              </div>
+            </button>
+            <button id="watercolor" onclick="setStyle(watercolor)">Watercolor
+              <div class="image-group">
+                <img src="{{ url_for('static', filename='bird_watercolor.png') }}">
+                <img src="{{ url_for('static', filename='bus_watercolor.png') }}">
+              </div>
+            </button>
+            <button id="apocalyptic" onclick="setStyle(apocalyptic)">Apocalyptic
+              <div class="image-group">
+                <img src="{{ url_for('static', filename='bird_apocalyptic.png') }}">
+                <img src="{{ url_for('static', filename='bus_apocalyptic.png') }}">
+              </div>
+            </button>
+            <button id="no_style" onclick="setStyle(no_style)">No style preset</button>
+            <button id="tiling" onclick="setStyle(tiling)">Tiling textures</button>
+      </div>
+      <br>
+      <script>
+        var textInput = document.getElementById("textInput");
+        var chatBox = document.getElementById("chatbox");
+        let format = 1; 
+        let currentStyleBtn = document.getElementById("cinematic");
+        var lastText = "";
+        selectedStyle = "cinematic";
+        document.getElementById(getButtonId(1)).classList.add("active");
+
+        function setStyle(style) {
+          if (currentStyleBtn !== null) {
+            currentStyleBtn.classList.remove("active");
+          }
+          currentStyleBtn = style;
+          selectedStyle = currentStyleBtn.id;
+          console.log(selectedStyle);
+          currentStyleBtn.classList.add("active");
+        }
+          
+        var placeholders = [
+          "A beautiful mountain landscape, sunset...",
+          "Old detective with a hat...",
+          "Blue sports car, motion blur...",
+          "Dark Souls, gloomy, landscape...",
+          "Astronaut in the jungle, cold colors...",
+          "New York at night, winter...",
+          "An eagle, big wings, flying, in a thunderstorm...",
+          "Factory in the desert, sunset...",
+          "Little bird on a branch...",
+          "Marketplace...",
+          "Outer space, planets, colored..."
+        ];
+
+        var randomIndex = Math.floor(Math.random() * placeholders.length);
+        var randomPlaceholder = placeholders[randomIndex];
+
+        textInput.placeholder = randomPlaceholder;          
+          
+        function reloadPage() {
+          location.reload();   
+        }
+          
+        function setFormat(value) {
+          format = value;
+          console.log(value);
+          deactivateButtons();
+          document.getElementById(getButtonId(value)).classList.add("active");
+        }
+        
+        function deactivateButtons() {
+          document.getElementById("squarebutton").classList.remove("active");
+          document.getElementById("landscapebutton").classList.remove("active");
+          document.getElementById("portraitbutton").classList.remove("active");
+          document.getElementById("ultrabutton").classList.remove("active");
+        }
+        
+        function getButtonId(value) {
+          switch(value) {
+            case 1:
+              return "squarebutton";
+            case 2:
+              return "landscapebutton";
+            case 3:
+              return "portraitbutton";
+            case 4:
+              return "ultrabutton";
+          }
+        }
+          
+        function renderStartMessage(msg, className) {
+          var msgHtml = document.createElement("div");
+          msgHtml.appendChild(document.createElement("p"))
+                 .appendChild(document.createElement("span"))
+                 .appendChild(document.createTextNode(msg));
+          msgHtml.className = className;
+          return msgHtml;
+        }
+		
+        function renderMessage(msg, className) {
+          var msgHtml = document.createElement("div");
+          var img = document.createElement("img");
+          img.src = msg;
+          msgHtml.appendChild(img);
+          msgHtml.className = className;
+
+          var downloadLink = document.createElement("a");
+          downloadLink.href = msg;
+          downloadLink.download = "Download Image";
+          downloadLink.innerHTML = '<i class="fa-solid fa-download"></i> Download Image';
+          downloadLink.style.display = "block";
+          downloadLink.style.marginTop = "-20px";
+          downloadLink.style.marginBottom = "10px";
+          msgHtml.appendChild(downloadLink);
+
+          return msgHtml;
+        }
+
+        function writeAsUser(msg) {
+          chatBox.appendChild(renderStartMessage(msg, "userText"));
+          var randomIndex = Math.floor(Math.random() * placeholders.length);
+          var randomPlaceholder = placeholders[randomIndex];
+          textInput.placeholder = randomPlaceholder;
+        }
+
+        function writeStartMessage(msg) {
+          chatBox.appendChild(renderStartMessage(msg, "botText"));
+        }
+
+        function writeAsBot(msg) {
+          chatBox.appendChild(renderMessage(msg, "botText"));
+          scrollToBottom();
+        }
+
+        function scrollToBottom() {
+            setTimeout(function() {
+                textInput.scrollIntoView({ block: "end", behavior: "smooth" });
+            }, 300);
+        }
+
+        function restoreLastText() {
+          textInput.value = lastText;
+          textInput.focus();
+        }
+            
+		function talkToBot() {
+          var rawText = textInput.value.trim();
+          if (rawText === "") {
+            return;
+          }
+		  textInput.value = "";
+		  textInput.setAttribute("style", "height: 31" + "px;overflow-y:hidden;");
+          lastText = rawText;
+          writeAsUser(rawText);
+		  
+          fetch("/getimage?" + new URLSearchParams({
+            msg: rawText,
+            format: format,
+            style: selectedStyle
+          })).then(response => response.text())
+             .then(responseText => {
+                writeAsBot(responseText);
+              });
+        }
+		
+		textInput.setAttribute("style", "height: 31" + "px;overflow-y:hidden;");
+		textInput.addEventListener("input", OnInput, false);
+
+		function OnInput() {
+			if(this.value === "") {
+				this.style.height = '31px';
+				this.focus();
+			}else{
+				this.style.height = 0;
+				this.style.height = (this.scrollHeight) + "px";
+			}
+		}
+		
+        textInput.addEventListener('keypress', e => {
+          if (e.which == 13 && e.shiftKey == false && textInput.value.length > 1) {
+            talkToBot();
+			if(event.preventDefault) event.preventDefault();
+			return false;
+          }
+        });
+
+        writeStartMessage("Hello!\nUse this simple ui to generate images using stable diffusion! \n\nWhat kind of image do you want to generate? \nYou just have to describe it. \n\nExamples:\n-An abandoned city \n-A bloody monster, apocalyptic\n-A tropical cave, light blue water\n-A red old school bus, parked in the forest\n\nDepending on the quality, it takes longer to generate.");
+      </script>
+    </div>
+  </body>
+</html>
