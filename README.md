@@ -31,7 +31,7 @@ To use this webui, clone the repo, install all the dependencies and run app.py w
   python3 app.py
 ```
 
-Settings:
+Settings in app.py:
 
 ```python
 verbose = False # Prints info's about the request 
