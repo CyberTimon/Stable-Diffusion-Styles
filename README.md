@@ -7,7 +7,7 @@ If you are here and wish a easy way to create beautiful and unique pictures usin
 
 To just get the prompts for the styles, feel free to just copy them from presets.py. 
 
-If you like this project, feel free to give it a star.  
+If you like this project, please give it a star.
 
 
 ## Goal of this repository
