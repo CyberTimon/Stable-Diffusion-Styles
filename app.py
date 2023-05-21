@@ -12,7 +12,7 @@ import os
 
 verbose = False # Prints info's about the request 
 port = 7000 # Change this to the port you want this chat style ui to start
-webui_url = "localhost:21128" # Change this to the A1111 webui url/port
+webui_url = "localhost:7860" # Change this to the A1111 webui url/port
 upscaler_model = "R-ESRGAN 4x+" # Change this to the upscaler you want to use
 translate = False # Enables translation of the prompt
 translator_model = "Helsinki-NLP/opus-mt-de-en" # Change this to the desired language. For french use for example: Helsinki-NLP/opus-mt-fr-en
