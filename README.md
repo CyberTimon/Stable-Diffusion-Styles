@@ -5,7 +5,7 @@ I always wanted to have a place, where you can easily find good stable diffusion
 
 If you are here and wish a easy way to create beautiful and unique pictures using my styles, you can just clone the repo, install the dependencies and run the app.py file. This will start the simple webui and you're ready to go.
 
-To just get the prompts for the styles, feel free to just copy them from prompts.py. 
+To just get the prompts for the styles, feel free to just copy them from presets.py. 
 
 If you like this project, feel free to give it a star.  
 
