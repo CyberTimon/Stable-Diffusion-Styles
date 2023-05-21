@@ -12,7 +12,8 @@ If you like this project, feel free to give it a star.
 
 ## Goal of this repository
 
-I created this repository to share the greatest prompt styles I made and expand this to even more the community will find.
+I created this repository to share the greatest prompt styles I made and expand this to even more the community will find. 
+Second I needed a way to create beautiful images without many buttons, sliders, numbers or very large, complicated prompts.
 
 In addition, I made a small chat-like webui to create images and upscale with great, complex styles using simple buttons. The webui should also accept multilingual prompts, so I added an option to translate the prompt from the desired language to english using an free, small open source translation model from huggingface.
 
