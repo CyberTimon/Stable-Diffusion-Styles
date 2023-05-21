@@ -41,11 +41,15 @@ translate = False # Enables translation of the prompt
 translator_model = "Helsinki-NLP/opus-mt-de-en" # Change this to the desired language. For french use for example: Helsinki-NLP/opus-mt-fr-en
 ```
 
-## Screenshots
-
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
-
-
 ## To Do
 
 - Make the prompts better (Sometimes "watercolor" for example generates human faces even when not prompted so)
+
+## Screenshots
+### Settings and style selection:
+<img src="https://raw.githubusercontent.com/CyberTimon/Stable-Diffusion-Styles/main/Screenshot1.png" alt="App Screenshot" width="50%">
+
+### Example generations:
+<img src="https://raw.githubusercontent.com/CyberTimon/Stable-Diffusion-Styles/main/Screenshot3.png" alt="App Screenshot" width="50%">
+
+<img src="https://raw.githubusercontent.com/CyberTimon/Stable-Diffusion-Styles/main/Screenshot2.png" alt="App Screenshot" width="50%">
