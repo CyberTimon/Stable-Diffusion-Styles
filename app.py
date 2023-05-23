@@ -37,7 +37,7 @@ def imagegen(sd_prompt, orientation, style, ip):
     else:
         translated_prompt = sd_prompt 
     if verbose:
-        print("\nPrompt:", sd_prompt, "\nAusrichtung:", orientation, "\nStyle:", style, "\nIP:", ip, "\nTime:", currentTime.strftime("%H:%M:%S", "\nTranslated Prompt:", translated_prompt))     
+        print("\nPrompt:", sd_prompt, "\nOrientation:", orientation, "\nStyle:", style, "\nIP:", ip, "\nTime:", currentTime.strftime("%H:%M:%S", "\nTranslated Prompt:", translated_prompt))     
         
     width, height, upscale, steps = make_orientation(orientation)
     prompt, negativeprompt = make_prompt(translated_prompt, style)       
