@@ -70,7 +70,7 @@ def make_prompt(prompt, style):
     elif style == 'natural':
         preprompt = "RAW photo of a "
         afterprompt = ", dslr, soft lighting, high quality, hdr, Fujifilm XT3"
-        negativeprompt = "(deformed iris, deformed pupils, semi-realistic, dark-skinned, cgi, 3d, render, sketch, cartoon, drawing, anime:1.4), text, close up, cropped, out of frame, worst quality, low quality, jpeg artifacts, bokeh, ugly, duplicate, fat, old, aged, fat, morbid, mutilated, extra fingers, mutated hands, poorly drawn hands, poorly drawn face, nude, mutation, deformed, blurry, dehydrated, bad anatomy, bad proportions, extra limbs, cloned face, black, disfigured, gross proportions, malformed limbs, missing arms, missing legs, extra arms, extra legs, fused fingers, too many fingers, long neck, watermarks, text, signature"
+        negativeprompt = "(deformed iris, deformed pupils, semi-realistic, cgi, 3d, render, sketch, cartoon, drawing, anime:1.4), text, close up, cropped, out of frame, worst quality, low quality, jpeg artifacts, bokeh, ugly, duplicate, fat, old, aged, fat, morbid, mutilated, extra fingers, mutated hands, poorly drawn hands, poorly drawn face, nude, mutation, deformed, blurry, dehydrated, bad anatomy, bad proportions, extra limbs, cloned face, black, disfigured, gross proportions, malformed limbs, missing arms, missing legs, extra arms, extra legs, fused fingers, too many fingers, long neck, watermarks, text, signature"
     elif style == 'watercolor':
         preprompt = "A watercolor painting of a "
         afterprompt = ", detailed line art, color explosion, ink drips, art, watercolors, wet, single color, abstract, by ilya kuvshinov"
@@ -78,7 +78,7 @@ def make_prompt(prompt, style):
     elif style == 'cinematic':
         preprompt = "RAW cinematic picture of a "
         afterprompt = ", cinematic look, cinematic, best quality, 70mm lens, lightroom, Nikon Z FX, sharp focus, Fujifilm XT3, (rutkowski:1.1), artstation, HDR, greg rutkowski"
-        negativeprompt = "(deformed iris, deformed pupils, semi-realistic, dark-skinned, cgi, 3d, render, sketch, cartoon, drawing, anime:1.4), text, close up, cropped, out of frame, worst quality, low quality, jpeg artifacts, ugly, duplicate, fat, old, aged, fat, morbid, mutilated, extra fingers, mutated hands, poorly drawn hands, poorly drawn face, nude, mutation, nsfw, deformed, blurry, dehydrated, bad anatomy, bad proportions, extra limbs, cloned face, black, disfigured, gross proportions, malformed limbs, missing arms, missing legs, extra arms, extra legs, fused fingers, too many fingers, long neck, watermarks, text, signature"
+        negativeprompt = "(deformed iris, deformed pupils, semi-realistic, cgi, 3d, render, sketch, cartoon, drawing, anime:1.4), text, close up, cropped, out of frame, worst quality, low quality, jpeg artifacts, ugly, duplicate, fat, old, aged, fat, morbid, mutilated, extra fingers, mutated hands, poorly drawn hands, poorly drawn face, nude, mutation, nsfw, deformed, blurry, dehydrated, bad anatomy, bad proportions, extra limbs, cloned face, black, disfigured, gross proportions, malformed limbs, missing arms, missing legs, extra arms, extra legs, fused fingers, too many fingers, long neck, watermarks, text, signature"
     elif style == 'tiling':
         preprompt = ""
         afterprompt = ""
