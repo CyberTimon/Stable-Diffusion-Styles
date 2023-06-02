@@ -12,7 +12,7 @@ import os
 
 verbose = False # Prints info's about the request 
 port = 7000 # Change this to the port you want this chat style ui to start
-webui_url = "localhost:7860" # Change this to the A1111 webui url/port
+webui_url = "http://localhost:7860" # Change this to the A1111 webui url/port
 upscaler_model = "R-ESRGAN 4x+" # Change this to the upscaler you want to use
 translate = False # Enables translation of the prompt
 translator_model = "Helsinki-NLP/opus-mt-de-en" # Change this to the desired language. For french use for example: Helsinki-NLP/opus-mt-fr-en
@@ -37,7 +37,7 @@ def imagegen(sd_prompt, orientation, style, ip):
     else:
         translated_prompt = sd_prompt 
     if verbose:
-        print("\nPrompt:", sd_prompt, "\nOrientation:", orientation, "\nStyle:", style, "\nIP:", ip, "\nTime:", currentTime.strftime("%H:%M:%S", "\nTranslated Prompt:", translated_prompt))     
+        print("\nPrompt:", sd_prompt, "\nOrientation:", orientation, "\nStyle:", style, "\nIP:", ip, "\nTime:", currentTime.strftime("%H:%M:%S"), "\nTranslated Prompt:", translated_prompt)     
         
     width, height, upscale, steps = make_orientation(orientation)
     prompt, negativeprompt = make_prompt(translated_prompt, style)       
